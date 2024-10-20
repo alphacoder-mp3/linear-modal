@@ -203,7 +203,7 @@ const TaskForm = () => {
                     size="sm"
                     onClick={() => handleSuggestionClick('tagIds', tag)}
                     type="button"
-                    className="border border-dashed border-[#DFE1E4]"
+                    className="border border-dashed border-[#DFE1E4] dark:border-neutral-600"
                   >
                     {tag}
                   </Button>
@@ -224,7 +224,7 @@ const TaskForm = () => {
                     size="sm"
                     onClick={() => handleSuggestionClick('projectId', project)}
                     type="button"
-                    className="border border-dashed border-[#DFE1E4]"
+                    className="border border-dashed border-[#DFE1E4] dark:border-neutral-600"
                   >
                     {project}
                   </Button>
@@ -240,7 +240,7 @@ const TaskForm = () => {
             name="status"
             render={({ field }) => (
               <FormItem className="w-fit">
-                <div className="border border-[#DFE1E4] rounded-lg">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg">
                   <FormLabel className="sr-only">Status</FormLabel>
                   <SearchableSelect
                     value={field.value || ''}
@@ -260,7 +260,7 @@ const TaskForm = () => {
             render={({ field }) => {
               return (
                 <FormItem className="w-fit">
-                  <div className="border border-[#DFE1E4] rounded-lg flex items-center cursor-pointer">
+                  <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center cursor-pointer">
                     <FormLabel className="sr-only">Assignees</FormLabel>
                     <FormControl>
                       <MultiSelect
@@ -282,7 +282,7 @@ const TaskForm = () => {
             name="priority"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] rounded-lg">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg">
                   <FormLabel className="sr-only">Priority</FormLabel>
                   <SearchableSelect
                     value={field.value || 'NO_PRIORITY'}
@@ -301,7 +301,7 @@ const TaskForm = () => {
             name="tagIds"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] rounded-lg cursor-pointer">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg cursor-pointer">
                   <FormLabel className="sr-only">Tags</FormLabel>
                   <FormControl>
                     <MultiSelect
@@ -322,7 +322,7 @@ const TaskForm = () => {
             name="projectId"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] rounded-lg">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg">
                   <FormLabel className="sr-only">Project</FormLabel>
                   <SearchableSelect
                     value={field.value || ''}
@@ -341,7 +341,7 @@ const TaskForm = () => {
             name="dueDate"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] rounded-lg flex items-center cursor-pointer">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center cursor-pointer">
                   <div className="pl-2">
                     <Icons.duedate />
                   </div>
@@ -366,7 +366,7 @@ const TaskForm = () => {
         </div>
 
         <div className="flex justify-between pt-4">
-          <div className="flex flex-wrap items-center space-x-1  rounded-md p-1">
+          <div className="flex flex-wrap items-center space-x-1 rounded-md p-1">
             {items.map((item, index) => (
               <Button
                 type="button"

@@ -47,7 +47,7 @@ export function MultiSelect({
       return <span>{placeholder}</span>;
     } else if (selectedOptions.length === 1) {
       return (
-        <span className="bg-gray-200 rounded-full px-2 py-1 text-sm flex items-center flex-shrink-0">
+        <span className="bg-gray-200 dark:bg-neutral-700 rounded-full px-2 py-1 text-sm flex items-center flex-shrink-0">
           {truncate(selectedOptions[0].label, 4)}
           <X
             size={14}
@@ -61,7 +61,7 @@ export function MultiSelect({
       );
     } else {
       return (
-        <span className="bg-gray-200 rounded-full px-2 py-1 text-sm flex flex-shrink-0">
+        <span className="bg-gray-200 dark:bg-neutral-700 rounded-full px-2 py-1 text-sm flex flex-shrink-0">
           {truncate(`${selectedOptions.length} selected`, 1)}
         </span>
       );
@@ -90,8 +90,9 @@ export function MultiSelect({
               <div
                 key={option.value}
                 className={cn(
-                  'flex items-center p-2 cursor-pointer hover:bg-gray-100',
-                  selected.includes(option.value) && 'bg-gray-100'
+                  'flex items-center p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-neutral-700',
+                  selected.includes(option.value) &&
+                    'bg-gray-100 dark:bg-neutral-700'
                 )}
                 onClick={() => handleToggleOption(option.value)}
               >

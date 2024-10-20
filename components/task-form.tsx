@@ -230,7 +230,7 @@ const TaskForm = () => {
                     size="sm"
                     onClick={() => handleSuggestionClick('tagIds', tag)}
                     type="button"
-                    className="border border-dotted border-[#DFE1E4]"
+                    className="border border-dashed border-[#DFE1E4]"
                   >
                     {tag}
                   </Button>
@@ -251,6 +251,7 @@ const TaskForm = () => {
                     size="sm"
                     onClick={() => handleSuggestionClick('projectId', project)}
                     type="button"
+                    className="border border-dashed border-[#DFE1E4]"
                   >
                     {project}
                   </Button>

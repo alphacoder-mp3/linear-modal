@@ -25,16 +25,14 @@ import {
   priorityData,
   statusData,
 } from '@/common/data';
-import { useEditor, EditorContent } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
+import { EditorContent } from '@tiptap/react';
 import { SelectIcon } from '@/common';
 import { PlaceHolder } from '@/types';
-import Placeholder from '@tiptap/extension-placeholder';
-import Link from '@tiptap/extension-link';
 import { useMarkDown } from '@/hooks/use-markdown';
 import { toast } from 'sonner';
 import { taskSchema, FormValues } from '@/types/zod-schema';
 import { useGeminiSuggestions } from '@/hooks/use-gemini-suggestions';
+import { useTiptapEditor } from '@/hooks/use-tiptap-editor';
 
 const TaskForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -119,6 +117,30 @@ const TaskForm = () => {
     }
   };
 
+  const titleEditorInstance = useTiptapEditor({
+    content: form.watch('title'),
+    placeholder: 'Task title',
+    onUpdate: html => {
+      form.setValue('title', html);
+      setTitle(titleEditorInstance?.getText() || '');
+    },
+    onFocus: () => setActiveEditor('title'),
+    onCreate: editor => setTitleEditor(editor),
+    onDestroy: () => setTitleEditor(null),
+  });
+
+  const descriptionEditorInstance = useTiptapEditor({
+    content: form.watch('description') || '',
+    placeholder: 'Describe this',
+    onUpdate: html => {
+      form.setValue('description', html);
+      setDescription(descriptionEditorInstance?.getText() || '');
+    },
+    onFocus: () => setActiveEditor('description'),
+    onCreate: editor => setDescriptionEditor(editor),
+    onDestroy: () => setDescriptionEditor(null),
+  });
+
   return (
     <Form {...form}>
       <form
@@ -129,7 +151,7 @@ const TaskForm = () => {
         <FormField
           control={form.control}
           name="title"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormLabel className="sr-only">Task Title</FormLabel>
               <FormControl>
@@ -139,28 +161,8 @@ const TaskForm = () => {
                   className="text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
                 /> */}
                 <EditorContent
-                  editor={useEditor({
-                    extensions: [
-                      StarterKit,
-                      Placeholder.configure({
-                        placeholder: 'Task title',
-                      }),
-                      Link.configure({
-                        openOnClick: false,
-                      }),
-                    ],
-                    content: field.value,
-                    onUpdate: ({ editor }) => {
-                      const html = editor.getHTML();
-                      field.onChange(html);
-                      setTitle(editor.getText());
-                    },
-                    onFocus: () => setActiveEditor('title'),
-                    onCreate: ({ editor }) => setTitleEditor(editor),
-                    onDestroy: () => setTitleEditor(null),
-                    immediatelyRender: false,
-                  })}
-                  //   placeholder="Task title"
+                  editor={titleEditorInstance}
+                  // placeholder="Task title"
                   className="p-2 text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
                 />
               </FormControl>
@@ -172,7 +174,7 @@ const TaskForm = () => {
         <FormField
           control={form.control}
           name="description"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormLabel className="sr-only">Description</FormLabel>
               <FormControl>
@@ -182,27 +184,8 @@ const TaskForm = () => {
                   className="text-md font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
                 /> */}
                 <EditorContent
-                  editor={useEditor({
-                    extensions: [
-                      StarterKit,
-                      Placeholder.configure({
-                        placeholder: 'Describe this',
-                      }),
-                      Link.configure({
-                        openOnClick: false,
-                      }),
-                    ],
-                    content: field.value,
-                    onUpdate: ({ editor }) => {
-                      const html = editor.getHTML();
-                      field.onChange(html);
-                      setDescription(editor.getText());
-                    },
-                    onFocus: () => setActiveEditor('description'),
-                    onCreate: ({ editor }) => setDescriptionEditor(editor),
-                    onDestroy: () => setDescriptionEditor(null),
-                    immediatelyRender: false,
-                  })}
+                  editor={descriptionEditorInstance}
+                  // placeholder="Describe this"
                   className="p-2 text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
                 />
               </FormControl>
@@ -263,7 +246,7 @@ const TaskForm = () => {
           </>
         )}
 
-        <div className="flex items-center pt-4 gap-4">
+        <div className="flex items-center pt-4 gap-4 flex-wrap">
           <FormField
             control={form.control}
             name="status"

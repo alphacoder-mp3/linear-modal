@@ -30,7 +30,6 @@ import StarterKit from '@tiptap/starter-kit';
 import { SelectIcon } from '@/common';
 import { PlaceHolder } from '@/types';
 import Placeholder from '@tiptap/extension-placeholder';
-import Mention from '@tiptap/extension-mention';
 import Link from '@tiptap/extension-link';
 import { useMarkDown } from '@/hooks/use-markdown';
 import { toast } from 'sonner';
@@ -143,11 +142,6 @@ const TaskForm = () => {
                   editor={useEditor({
                     extensions: [
                       StarterKit,
-                      Mention.configure({
-                        HTMLAttributes: {
-                          class: 'mention',
-                        },
-                      }),
                       Placeholder.configure({
                         placeholder: 'Task title',
                       }),
@@ -189,7 +183,15 @@ const TaskForm = () => {
                 /> */}
                 <EditorContent
                   editor={useEditor({
-                    extensions: [StarterKit],
+                    extensions: [
+                      StarterKit,
+                      Placeholder.configure({
+                        placeholder: 'Describe this',
+                      }),
+                      Link.configure({
+                        openOnClick: false,
+                      }),
+                    ],
                     content: field.value,
                     onUpdate: ({ editor }) => {
                       const html = editor.getHTML();

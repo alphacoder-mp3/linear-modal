@@ -1,7 +1,5 @@
-import React from 'react';
 import { Editor } from '@tiptap/react';
 import { Button } from '@/components/ui/button';
-import { Icons } from '@/components/icons';
 import { Separator } from '@/components/ui/separator';
 import { SelectIcon } from '@/common';
 import { PlaceHolder } from '@/types';

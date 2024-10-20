@@ -118,7 +118,7 @@ const TaskForm = () => {
   };
 
   const titleEditorInstance = useTiptapEditor({
-    content: form.watch('title'),
+    content: form.watch('title') || '<p></p>',
     placeholder: 'Task title',
     onUpdate: html => {
       form.setValue('title', html);
@@ -130,7 +130,7 @@ const TaskForm = () => {
   });
 
   const descriptionEditorInstance = useTiptapEditor({
-    content: form.watch('description') || '',
+    content: form.watch('description') || '<p></p>',
     placeholder: 'Describe this',
     onUpdate: html => {
       form.setValue('description', html);
@@ -155,15 +155,9 @@ const TaskForm = () => {
             <FormItem>
               <FormLabel className="sr-only">Task Title</FormLabel>
               <FormControl>
-                {/* <Input
-                  placeholder="Task title"
-                  {...field}
-                  className="text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
-                /> */}
                 <EditorContent
                   editor={titleEditorInstance}
-                  // placeholder="Task title"
-                  className="p-2 text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
+                  className="title-editor p-2 text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
                 />
               </FormControl>
               <FormMessage />
@@ -178,15 +172,9 @@ const TaskForm = () => {
             <FormItem>
               <FormLabel className="sr-only">Description</FormLabel>
               <FormControl>
-                {/* <Input
-                  placeholder="Describe this"
-                  {...field}
-                  className="text-md font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
-                /> */}
                 <EditorContent
                   editor={descriptionEditorInstance}
-                  // placeholder="Describe this"
-                  className="p-2 text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
+                  className="description-editor p-2 text-lg font-medium border-none focus-visible:ring-transparent shadow-none focus:outline-none"
                 />
               </FormControl>
               <FormMessage />

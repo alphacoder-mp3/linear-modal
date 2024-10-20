@@ -6,7 +6,7 @@ import prisma from '@/lib/db';
 import { revalidatePath } from 'next/cache';
 
 export async function createTask(formData: FormData) {
-  console.log({ formData: formData });
+  // console.log({ formData: formData });
   const validatedData = taskSchema.parse({
     title: formData.get('title'),
     description: formData.get('description') || undefined,

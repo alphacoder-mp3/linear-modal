@@ -81,3 +81,85 @@ body {
  opacity: 0;
  cursor: pointer;
 } */
+
+/* .title-editor .ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #94989E;
+  opacity: 0.7;
+  
+}
+
+.description-editor .ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #94989E;
+  opacity: 0.7;
+}
+
+.title-editor .ProseMirror:focus p.is-empty::before {
+  content: '';
+}
+
+.description-editor .ProseMirror:focus p.is-empty::before {
+  content: '';
+} */
+
+
+.title-editor .ProseMirror,
+.description-editor .ProseMirror {
+  border: none; 
+  outline: none; 
+}
+
+.title-editor .ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #94989E;
+  opacity: 0.7;
+  position: absolute; 
+  top: 3;
+  pointer-events: none; 
+}
+
+.title-editor .ProseMirror {
+  position: relative; 
+}
+
+.title-editor .ProseMirror p:not(.is-empty):focus::before {
+  content: '';
+}
+
+.description-editor .ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #94989E;
+  opacity: 0.7;
+  position: absolute; 
+  top:3;
+  pointer-events: none;
+}
+
+.description-editor .ProseMirror {
+  position: relative; 
+}
+
+.description-editor .ProseMirror p:not(.is-empty):focus::before {
+  content: '';
+}

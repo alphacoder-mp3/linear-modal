@@ -3,6 +3,8 @@ import localFont from 'next/font/local';
 import { Poppins } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
 import { TailwindIndicator } from '@/components/tailwind-indicator';
+import { ThemeProvider } from '@/components/theme-provider';
+import { ModeToggle } from '@/components/mode-toggle';
 import './globals.css';
 
 const poppins = Poppins({
@@ -39,9 +41,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        {children}
-        <Toaster />
-        <TailwindIndicator />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <section className="absolute right-2 top-2">
+            <ModeToggle />
+          </section>
+
+          {children}
+          <Toaster />
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   );

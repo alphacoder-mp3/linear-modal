@@ -146,7 +146,7 @@ const TaskForm = () => {
       <form
         onSubmit={onSubmit}
         ref={formRef}
-        className="space-y-2 text-[#6C6F75]"
+        className="space-y-2 text-[#6C6F75] dark:text-neutral-300"
       >
         <FormField
           control={form.control}
@@ -362,7 +362,7 @@ const TaskForm = () => {
         </div>
 
         <div>
-          <Separator className="mt-4" />
+          <Separator className="mt-4 dark:text-neutral-300" />
         </div>
 
         <div className="flex justify-between pt-4">
@@ -382,7 +382,10 @@ const TaskForm = () => {
               </Button>
             ))}
           </div>
-          <Button type="submit" className="flex gap-4 bg-[#3F2ABD]">
+          <Button
+            type="submit"
+            className="flex gap-4 bg-[#3F2ABD] dark:text-neutral-300"
+          >
             Create Task
             <Icons.enter />
           </Button>

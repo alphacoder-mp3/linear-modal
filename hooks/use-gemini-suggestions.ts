@@ -51,7 +51,7 @@ export function useGeminiSuggestions() {
         const text = response.text();
         const jsonText = extractJsonFromMarkdown(text);
         const suggestions = JSON.parse(jsonText);
-        console.log({ suggestions });
+        // console.log({ suggestions });
 
         setTagSuggestions(suggestions.tags || []);
         setProjectSuggestions(suggestions.project || []);

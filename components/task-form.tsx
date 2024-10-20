@@ -119,7 +119,7 @@ const TaskForm = () => {
       form.setValue('projectId', value);
     }
   };
-  console.log({ tagSuggestions, projectSuggestions });
+
   return (
     <Form {...form}>
       <form
@@ -230,6 +230,7 @@ const TaskForm = () => {
                     size="sm"
                     onClick={() => handleSuggestionClick('tagIds', tag)}
                     type="button"
+                    className="border border-dotted border-[#DFE1E4]"
                   >
                     {tag}
                   </Button>

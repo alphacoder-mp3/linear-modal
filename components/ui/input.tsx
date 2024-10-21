@@ -6,7 +6,7 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
-  customClassName?: string;
+  className?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(

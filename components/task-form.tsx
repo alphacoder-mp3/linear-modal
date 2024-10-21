@@ -33,6 +33,7 @@ import { toast } from 'sonner';
 import { taskSchema, FormValues } from '@/types/zod-schema';
 import { useGeminiSuggestions } from '@/hooks/use-gemini-suggestions';
 import { useTiptapEditor } from '@/hooks/use-tiptap-editor';
+import { Input } from './ui/input';
 
 const TaskForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -240,7 +241,7 @@ const TaskForm = () => {
             name="status"
             render={({ field }) => (
               <FormItem className="w-fit">
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100">
                   <FormLabel className="sr-only">Status</FormLabel>
                   <SearchableSelect
                     value={field.value || ''}
@@ -260,7 +261,7 @@ const TaskForm = () => {
             render={({ field }) => {
               return (
                 <FormItem className="w-fit">
-                  <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center cursor-pointer">
+                  <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center cursor-pointer hover:bg-gray-100">
                     <FormLabel className="sr-only">Assignees</FormLabel>
                     <FormControl>
                       <MultiSelect
@@ -282,7 +283,7 @@ const TaskForm = () => {
             name="priority"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100">
                   <FormLabel className="sr-only">Priority</FormLabel>
                   <SearchableSelect
                     value={field.value || 'NO_PRIORITY'}
@@ -301,7 +302,7 @@ const TaskForm = () => {
             name="tagIds"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg cursor-pointer">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg cursor-pointer hover:bg-gray-100">
                   <FormLabel className="sr-only">Tags</FormLabel>
                   <FormControl>
                     <MultiSelect
@@ -322,7 +323,7 @@ const TaskForm = () => {
             name="projectId"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100">
                   <FormLabel className="sr-only">Project</FormLabel>
                   <SearchableSelect
                     value={field.value || ''}
@@ -359,6 +360,34 @@ const TaskForm = () => {
               </FormItem>
             )}
           /> */}
+          <FormField
+            control={form.control}
+            name="dueDate"
+            render={() => (
+              <FormItem
+                onClick={() => toast('Due date feature will be added soon')}
+              >
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center justify-between cursor-pointer px-3 py-1.5 hover:bg-gray-100 transition-all">
+                  <div className="flex items-center">
+                    <Icons.duedate className="text-gray-500" />
+                    <span className="text-gray-500 font-medium ml-2 mr-[-25]">
+                      Due Date
+                    </span>
+                  </div>
+
+                  <FormLabel className="sr-only">Due Date</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="date"
+                      className="border-none focus-visible:ring-transparent focus:outline-none text-transparent pointer-events-none w-0 h-0"
+                      placeholder="Due Date"
+                    />
+                  </FormControl>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
 
         <div>

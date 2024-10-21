@@ -369,10 +369,8 @@ const TaskForm = () => {
               >
                 <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center justify-between cursor-pointer px-3 py-1.5 hover:bg-gray-100 transition-all">
                   <div className="flex items-center">
-                    <Icons.duedate className="text-gray-500" />
-                    <span className="text-gray-500 font-medium ml-2 mr-[-25]">
-                      Due Date
-                    </span>
+                    <Icons.duedate />
+                    <span className="font-medium ml-2 mr-[-25]">Due Date</span>
                   </div>
 
                   <FormLabel className="sr-only">Due Date</FormLabel>

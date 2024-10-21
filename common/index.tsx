@@ -36,5 +36,7 @@ export const SelectIcon = (placeholder: PlaceHolder, className?: string) => {
       return <Icons.mention className={className} />;
     case 'attachment':
       return <Icons.attachment className={className} />;
+    case 'emoji':
+      return <Icons.emoji className={className} />;
   }
 };

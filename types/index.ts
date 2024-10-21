@@ -35,7 +35,8 @@ export type PlaceHolder =
   | 'bulletList'
   | 'url'
   | 'mention'
-  | 'attachment';
+  | 'attachment'
+  | 'emoji';
 
 export type MultiSelectProps = {
   options: Option[];

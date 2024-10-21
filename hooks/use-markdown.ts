@@ -20,6 +20,9 @@ export const useMarkDown = () => {
         case 'attachment':
           toast('Attachment will be added soon.');
           break;
+        case 'emoji':
+          toast('Emojis pro feature will be added soon.');
+          break;
         case 'mention':
           toast('This mention pro feature will be added soon.');
           break;
@@ -63,13 +66,19 @@ export const useMarkDown = () => {
       icon: 'attachment',
       title: 'Attachment',
       action: () => formatText('attachment'),
-      isActive: () => editor?.isActive('heading', { level: 1 }),
+      isActive: () => editor?.isActive('attachment'),
+    },
+    {
+      icon: 'emoji',
+      title: 'Emoji',
+      action: () => formatText('emoji'),
+      isActive: () => editor?.isActive('emoji'),
     },
     {
       icon: 'mention',
       title: 'Mention',
       action: () => formatText('mention'),
-      isActive: () => editor?.isActive('heading', { level: 1 }),
+      isActive: () => editor?.isActive('mention'),
     },
     {
       icon: 'heading',

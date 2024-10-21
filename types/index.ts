@@ -34,7 +34,8 @@ export type PlaceHolder =
   | 'unOrderList'
   | 'bulletList'
   | 'url'
-  | 'mention';
+  | 'mention'
+  | 'attachment';
 
 export type MultiSelectProps = {
   options: Option[];

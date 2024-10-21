@@ -1,5 +1,7 @@
+'use client';
 import { Editor } from '@tiptap/react';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export const useMarkDown = () => {
   const [activeEditor, setActiveEditor] = useState<
@@ -15,8 +17,10 @@ export const useMarkDown = () => {
   const formatText = (format: string) => {
     if (editor) {
       switch (format) {
+        case 'attachment':
+          toast('Attachment will be added soon.');
         case 'mention':
-          editor.chain().focus().toggleBold().run();
+          toast('This mention pro feature will be added soon.');
           break;
         case 'bold':
           editor.chain().focus().toggleBold().run();
@@ -45,6 +49,9 @@ export const useMarkDown = () => {
         case 'bulletList':
           editor.chain().focus().toggleBulletList().run();
           break;
+        case 'unOrderList':
+          toast('Un order list will be added soon.');
+          break;
         // Add more cases for other formatting options as needed
       }
     }
@@ -52,9 +59,15 @@ export const useMarkDown = () => {
 
   const items = [
     {
+      icon: 'attachment',
+      title: 'Attachment',
+      action: () => formatText('attachment'),
+      isActive: () => editor?.isActive('heading', { level: 1 }),
+    },
+    {
       icon: 'mention',
       title: 'Mention',
-      action: () => formatText('heading1'),
+      action: () => formatText('mention'),
       isActive: () => editor?.isActive('heading', { level: 1 }),
     },
     {
@@ -98,6 +111,12 @@ export const useMarkDown = () => {
       title: 'Bullet List',
       action: () => formatText('bulletList'),
       isActive: () => editor?.isActive('bulletList'),
+    },
+    {
+      icon: 'unOrderList',
+      title: 'unOrder List',
+      action: () => formatText('unOrderList'),
+      isActive: () => editor?.isActive('unOrderList'),
     },
   ];
 

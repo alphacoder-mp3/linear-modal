@@ -413,7 +413,7 @@ const TaskForm = () => {
           </div>
           <Button
             type="submit"
-            className="flex gap-4 bg-[#3F2ABD] dark:text-neutral-300"
+            className="flex gap-4 bg-[#3F2ABD] dark:text-neutral-300 dark:hover:bg-neutral-700"
           >
             Create Task
             <Icons.enter />

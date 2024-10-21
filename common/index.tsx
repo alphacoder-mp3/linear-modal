@@ -34,7 +34,7 @@ export const SelectIcon = (placeholder: PlaceHolder, className?: string) => {
       return <Icons.unOrderList className={className} />;
     case 'mention':
       return <Icons.mention className={className} />;
-    // case 'attachment':
-    //   return <Icons.attachment className={className} />;
+    case 'attachment':
+      return <Icons.attachment className={className} />;
   }
 };

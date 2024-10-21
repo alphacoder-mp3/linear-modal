@@ -241,7 +241,7 @@ const TaskForm = () => {
             name="status"
             render={({ field }) => (
               <FormItem className="w-fit">
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700">
                   <FormLabel className="sr-only">Status</FormLabel>
                   <SearchableSelect
                     value={field.value || ''}
@@ -261,7 +261,7 @@ const TaskForm = () => {
             render={({ field }) => {
               return (
                 <FormItem className="w-fit">
-                  <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center cursor-pointer hover:bg-gray-100">
+                  <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-neutral-700">
                     <FormLabel className="sr-only">Assignees</FormLabel>
                     <FormControl>
                       <MultiSelect
@@ -283,7 +283,7 @@ const TaskForm = () => {
             name="priority"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700">
                   <FormLabel className="sr-only">Priority</FormLabel>
                   <SearchableSelect
                     value={field.value || 'NO_PRIORITY'}
@@ -302,7 +302,7 @@ const TaskForm = () => {
             name="tagIds"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg cursor-pointer hover:bg-gray-100">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-neutral-700">
                   <FormLabel className="sr-only">Tags</FormLabel>
                   <FormControl>
                     <MultiSelect
@@ -323,7 +323,7 @@ const TaskForm = () => {
             name="projectId"
             render={({ field }) => (
               <FormItem>
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-700">
                   <FormLabel className="sr-only">Project</FormLabel>
                   <SearchableSelect
                     value={field.value || ''}
@@ -367,7 +367,7 @@ const TaskForm = () => {
               <FormItem
                 onClick={() => toast('Due date feature will be added soon')}
               >
-                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center justify-between cursor-pointer px-3 py-1.5 hover:bg-gray-100 transition-all">
+                <div className="border border-[#DFE1E4] dark:border-neutral-600 rounded-lg flex items-center justify-between cursor-pointer px-3 py-1.5 dark:hover:bg-neutral-700 hover:bg-gray-100 transition-all">
                   <div className="flex items-center">
                     <Icons.duedate />
                     <span className="font-medium ml-2 mr-[-25px]">

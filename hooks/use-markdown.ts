@@ -19,6 +19,7 @@ export const useMarkDown = () => {
       switch (format) {
         case 'attachment':
           toast('Attachment will be added soon.');
+          break;
         case 'mention':
           toast('This mention pro feature will be added soon.');
           break;
